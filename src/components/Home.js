@@ -1,6 +1,7 @@
 import React            from 'react';
 import { useHomeFetch } from "../hooks/use-HomeFetch";
-import BannerImage      from "./BannerImage";
+import BannerImage                       from "./BannerImage";
+import Grid                              from "./Grid";
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from "../config";
 
 //config
@@ -18,6 +19,10 @@ const Home = () => {
 				             title={state.results[0].original_title}
 				             text={state.results[0].overview}/>
 				: null}
+			<Grid header='Popular Movies'/>
+			{state.results.map(movie => (
+				<div key={movie.id}>{movie.title}</div>
+			))}
 		</>
 	)
 
