@@ -4,6 +4,7 @@ import BannerImage                                     from "./BannerImage";
 import Grid                                            from "./Grid";
 import Thumb                                           from "./Thumb";
 import NoImage                                         from '../images/no_image.jpg'
+import Spinner                                         from "./Spinner";
 import { BACKDROP_SIZE, IMAGE_BASE_URL, POSTER_SIZE, } from "../config";
 
 //config
@@ -33,6 +34,7 @@ const Home = () => {
 
 				))}
 			</Grid>
+			<Spinner/>
 		</>
 	)
 
