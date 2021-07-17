@@ -6,6 +6,7 @@ import Thumb                                           from "./Thumb";
 import NoImage                                         from '../images/no_image.jpg'
 import Spinner                                         from "./Spinner";
 import SearchBar                                       from "./SearchBar";
+import Button                                          from "./Button";
 import { BACKDROP_SIZE, IMAGE_BASE_URL, POSTER_SIZE, } from "../config";
 
 //config
@@ -14,8 +15,11 @@ import { BACKDROP_SIZE, IMAGE_BASE_URL, POSTER_SIZE, } from "../config";
 //image
 
 const Home = () => {
-	const {state, loading, error, setSearchTerm, searchTerm} = useHomeFetch();
+	const {state, loading, error, setSearchTerm, searchTerm, setIsLoadingMore} = useHomeFetch();
 	console.log(state);
+
+	if(error) return <div>Something went wrong!....</div>
+
 	return (
 		<>
 			{!searchTerm && state.results[0] ?
@@ -36,11 +40,15 @@ const Home = () => {
 
 				))}
 			</Grid>
-			<Spinner/>
-		</>
-	)
+			{loading && <Spinner/>}
+			{state.page < state.total_pages && !loading && (
+				<Button text='Load More' callback={()=> setIsLoadingMore(true)}/>
+			)}
 
-		;
+		</>
+	);
+
+
 };
 
 export default Home;
