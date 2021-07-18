@@ -1,6 +1,6 @@
-import React                                           from 'react';
-import { useHomeFetch }                                from "../hooks/use-HomeFetch";
-import BannerImage                                     from "./BannerImage";
+import React            from 'react';
+import { useHomeFetch } from "../hooks/useHomeFetch";
+import BannerImage      from "./BannerImage";
 import Grid                                            from "./Grid";
 import Thumb                                           from "./Thumb";
 import NoImage                                         from '../images/no_image.jpg'
