@@ -1,6 +1,7 @@
 import React         from 'react';
-import Spinner       from "./Spinner";
-import BreadCrumb    from "./BreadCrumb";
+import Spinner    from "./Spinner";
+import MovieInfo  from "./MovieInfo";
+import BreadCrumb from "./BreadCrumb";
 import useMovieFetch from "../hooks/useMovieFetch";
 import { useParams } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ const Movie = () => {
 	return (
 		<>
 			< BreadCrumb movieTitle={movie.original_title}/>
+			< MovieInfo movie={movie}/>
 		</>
 	);
 };
